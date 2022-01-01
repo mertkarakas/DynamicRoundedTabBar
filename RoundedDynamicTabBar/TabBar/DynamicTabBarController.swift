@@ -31,12 +31,12 @@ final class DynamicTabBarController: UITabBarController {
         tabBar.layer.masksToBounds = true
         tabBar.isTranslucent = true
         tabBar.barStyle = .default
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .systemBackground
         
         // Create round and shadow for tabBar
         
         let roundedShadowView = UIView(frame: tabBar.bounds)
-        roundedShadowView.backgroundColor = UIColor.white
+        roundedShadowView.backgroundColor = .systemFill
         roundedShadowView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
             tabBar.layer.cornerRadius = Constants.tabBarRadius
@@ -48,7 +48,7 @@ final class DynamicTabBarController: UITabBarController {
             cornerMask.insert(.topLeft)
             cornerMask.insert(.topRight)
             let path = UIBezierPath(
-                roundedRect: self.view.bounds,
+                roundedRect: view.bounds,
                 byRoundingCorners: cornerMask,
                 cornerRadii: CGSize(width: Constants.tabBarRadius, height: Constants.tabBarRadius)
             )
